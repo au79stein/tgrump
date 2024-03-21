@@ -8,4 +8,11 @@ class ArticlesController < ApplicationController
     #binding.break
     @articles = Article.all
   end
+
+  def new
+  end
+
+  def create
+    render plain: params[:article]
+  end
 end
