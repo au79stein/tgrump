@@ -14,7 +14,7 @@
     <% @articles.each do |article| %>
       <tr>
 	<td><%= article.id %></td>
-	<td><%= article.title %></td>
+	<td><a href="/articles/<%= article.id %>"><%= article.title %></a></td>
 	<td><%= article.description %></td>
 	<td>some action</td>
       </tr>   

@@ -10,9 +10,23 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
   def create
-    render plain: params[:article]
+    @article = Article.new(params.require(:article).permit(:title, :description))
+    if @article.save
+      #redirect_to article_path(@article)
+      # above can be abbreviated with the below shortcut since it is a common idiom
+      redirect_to @article
+    else
+      #binding.break
+      render 'new'
+    end
   end
+
 end
+
+
+
+

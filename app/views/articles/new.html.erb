@@ -1,7 +1,17 @@
 <h1>Create New  Articles</h1>
 <hr>
 
-<%= form_with scope: :article, url: articles_path, local:true do |f| %>
+<% if @article.errors.any? %>
+    <h2> Article not saved, errors:</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+    <li><%=  msg %></li>
+    <% binding.break %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
 <p>
   <%= f.label :title %><br/>
   <%= f.text_field :title %>
