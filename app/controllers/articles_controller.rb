@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
-  def show
-    #binding.break
-    @article = Article.find(params[:id])
-  end
-
   def index
     #binding.break
     @articles = Article.all
+  end
+
+  def show
+    #binding.break
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -14,15 +14,23 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    #@article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.new(article_params)
+
     if @article.save
       #redirect_to article_path(@article)
       # above can be abbreviated with the below shortcut since it is a common idiom
       redirect_to @article
     else
       #binding.break
-      render 'new'
+      # render :new this doesn't workin in Rails 7, it doesn't display the error messages in the article... you need to do below to make it work
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:title, :description)
   end
 
 end
