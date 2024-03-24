@@ -6,5 +6,6 @@
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %><br/>
+  <%= link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Delete Article #{@article.id}? Are you sure?" } %><br/>
   <%= link_to "Article Listing", articles_path() %>
 </div>
