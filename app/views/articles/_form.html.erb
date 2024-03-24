@@ -2,18 +2,21 @@
 
 <div>
   <%= form.label :title %><br/>
-  <%= form.text_field :title %>
+  <%= form.text_field :title %><br/>
   <% article.errors.full_messages_for(:title).each do |message| %>
-    <div><%= message %></div>
+    <div><strong style='color:red;'><%= message %></strong></div>
   <% end %>
+  <br/>
 </div>
 
 <div>
+  <br/>
   <%= form.label :description %><br/>
   <%= form.text_area :description %><br/>
   <% article.errors.full_messages_for(:description).each do |message| %>
-  <div><%= message %></div>
+    <div><strong style='color:red;'><%= message %></strong></div>
   <% end %>
+  <br/>
 </div>
 
 <div>
