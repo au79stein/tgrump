@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
     if @article.save
       #redirect_to article_path(@article)
       # above can be abbreviated with the below shortcut since it is a common idiom
+      flash[:notice] = "Article was created successfully"
       redirect_to @article
     else
       #binding.break
@@ -36,6 +37,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
+      flash[:notice] = "Article #{@article.id} has been updated"
       redirect_to @article
     else
       render :edit, status: :unprocessable_entity
