@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     if @article.save
       #redirect_to article_path(@article)
       # above can be abbreviated with the below shortcut since it is a common idiom
-      flash[:notice] = "Article was created successfully"
+      flash[:notice] = "Article #{@article.id} - #{@article.title} was created successfully"
       redirect_to @article
     else
       #binding.break
