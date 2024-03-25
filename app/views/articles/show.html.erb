@@ -5,7 +5,7 @@
 <p><strong>Description: </strong><%= @article.description %></p>
 
 <div>
-  <%= link_to "Edit this article", edit_article_path(@article) %><br/>
-  <%= link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Delete Article #{@article.id}? Are you sure?" } %><br/>
-  <%= link_to "Article Listing", articles_path() %>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+  <%= link_to "Delete", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Delete Article #{@article.id} - #{@article.title}? \nAre you sure?" } %> |
+  <%= link_to "Article Listings", articles_path() %>
 </div>
