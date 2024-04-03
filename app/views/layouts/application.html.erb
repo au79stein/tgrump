@@ -11,9 +11,13 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
+    <!-- going to replace below with just the call to the partial... -->
+    <!-- going to turn flash message into partial just to demonstrate how it is done -->
+    <!-- <% flash.each do |name, msg| %> -->
+      <!-- <%= msg %> -->
+    <!-- <% end %> -->
+    <%= render 'layouts/messages' %>
+    
     <%= yield %>
   </body>
 </html>
